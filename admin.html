@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Ajouter un livre</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+
+  <h1>🛠️ Interface Admin</h1>
+  <form id="adminForm">
+    <input type="text" id="title" placeholder="Titre du livre" required>
+    <input type="text" id="author" placeholder="Auteur" required>
+    <input type="text" id="category" placeholder="Catégorie" required>
+    <textarea id="content" placeholder="Contenu du livre" rows="10" required></textarea>
+    <button type="submit">Ajouter</button>
+  </form>
+
+  <script>
+    document.getElementById('adminForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = {
+        title: document.getElementById('title').value,
+        author: document.getElementById('author').value,
+        category: document.getElementById('category').value,
+        content: document.getElementById('content').value
+      };
+      await fetch('/admin/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      alert('Livre ajouté !');
+    });
+  </script>
+</body>
+</html>
