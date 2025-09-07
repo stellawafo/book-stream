@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>📚 Book Streaming App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+
+  <section id="intro">
+    <img src="logo.png" alt="Logo" style="width:150px;">
+    <h2>Bienvenue dans votre bibliothèque numérique</h2>
+    <p>Explorez, écoutez, notez et sauvegardez vos lectures préférées.</p>
+  </section>
+
+  <div id="authSection">
+    <input type="text" id="username" placeholder="Nom d'utilisateur">
+    <input type="password" id="password" placeholder="Mot de passe">
+    <button onclick="register()">S'inscrire</button>
+    <button onclick="login()">Se connecter</button>
+  </div>
+
+  <div id="controls">
+    <select id="bookSelector"></select>
+    <button onclick="startStreaming()">Lire</button>
+    <button onclick="toggleDarkMode()">🌙 Mode sombre</button>
+    <button onclick="readAloud()">🔊 Lecture audio</button>
+    <button onclick="addFavorite()">❤️ Ajouter aux favoris</button>
+  </div>
+
+  <div id="ratingSection">
+    <label for="rating">Notez ce livre :</label>
+    <select id="rating">
+      <option value="1">⭐</option>
+      <option value="2">⭐⭐</option>
+      <option value="3">⭐⭐⭐</option>
+      <option value="4">⭐⭐⭐⭐</option>
+      <option value="5">⭐⭐⭐⭐⭐</option>
+    </select>
+    <button onclick="submitRating()">Envoyer</button>
+    <p id="averageRating">Moyenne : -</p>
+  </div>
+
+  <pre id="bookContent"></pre>
+
+  <script src="script.js"></script>
+</body>
+</html>
